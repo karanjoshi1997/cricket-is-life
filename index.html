@@ -8,122 +8,204 @@
 </head>
 <body>
   <header class="hero">
+    <div class="overlay"></div>
+
     <div class="container">
       <nav class="navbar">
-        <h1 class="logo">Cricket is Life</h1>
-        <a href="#contact" class="nav-button">Contact</a>
+        <div class="logo">Cricket is Life</div>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#players">Players</a>
+          <a href="#stats">Stats</a>
+          <a href="#contact">Contact</a>
+        </div>
       </nav>
 
       <div class="hero-content">
-        <p class="tag">Welcome to my website</p>
-        <h2>Cricket is Life</h2>
-        <p class="intro">
-          I love cricket, follow great players, and enjoy learning more about
-          the game every day. This website is a simple tribute to some of the
-          most iconic cricketers.
+        <p class="hero-tag">My first cricket website</p>
+        <h1>Cricket is Life</h1>
+        <p class="hero-text">
+          A clean, modern cricket-themed website celebrating iconic players,
+          big-match performers, and the passion of the game.
         </p>
-        <a href="#projects" class="main-button">View Cricketers</a>
+
+        <div class="hero-buttons">
+          <a href="#players" class="btn btn-primary">Explore Players</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="about container">
-      <h2>About</h2>
-      <p>
-        This is my personal beginner website built with HTML and CSS. I wanted
-        to create something clean, modern, and based on my passion: cricket.
-      </p>
-    </section>
-
-    <section id="projects" class="projects container">
-      <h2>List of Cricketers</h2>
-
-    <div class="card">
-  <img src="virat.jpg" alt="Virat Kohli">
-  <h3>Virat Kohli</h3>
-  <p>One of the best modern batters.</p>
-</div>
-        <div class="card">
-          <h3>Sachin Tendulkar</h3>
-          <p>
-            A legendary cricketer admired around the world for his long career,
-            skill, and records.
-          </p>
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">About</p>
+          <h2>Built for cricket fans</h2>
         </div>
 
-        <div class="card">
-          <h3>MS Dhoni</h3>
+        <div class="about-box">
           <p>
-            Famous for calm leadership, match finishing, and sharp wicketkeeping.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Rohit Sharma</h3>
-          <p>
-            Known for elegant batting, big scores, and powerful stroke play.
-          </p>
-        </div>
-
-<div class="card">
-  <img src="head.jpg" alt="Travis Head">
-  <h3>Travis Head</h3>
-  <p>
-    Australian batter known for aggressive stroke play and match-winning innings.
-  </p>
-</div>
-
-        <div class="card">
-          <h3>Jasprit Bumrah</h3>
-          <p>
-            A world-class fast bowler known for accuracy, pace, and match-winning spells.
+            This website is a simple but stylish cricket project built with HTML
+            and CSS. It highlights great players, celebrates match-winning
+            performances, and shows how a beginner can build something awesome
+            on the web for free.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="finals container">
-  <h2>Players Who Dominate ICC Finals</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Travis Head</h3>
-      <p>Explosive batter known for stepping up in major matches.</p>
-    </div>
+    <section id="stats" class="section stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>6+</h3>
+            <p>Featured Players</p>
+          </div>
+          <div class="stat-card">
+            <h3>100%</h3>
+            <p>Built with HTML & CSS</p>
+          </div>
+          <div class="stat-card">
+            <h3>Live</h3>
+            <p>Hosted on GitHub Pages</p>
+          </div>
+          <div class="stat-card">
+            <h3>Free</h3>
+            <p>Created and published online</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h3>MS Dhoni</h3>
-      <p>Calm finisher and legendary captain in pressure moments.</p>
-    </div>
+    <section id="players" class="section players">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Featured Players</p>
+          <h2>Cricketers I admire</h2>
+        </div>
 
-    <div class="card">
-      <h3>Ben Stokes</h3>
-      <p>Big-match player with a reputation for clutch performances.</p>
-    </div>
+        <div class="card-grid">
+          <article class="player-card featured">
+            <img src="head.jpg" alt="Travis Head" />
+            <div class="card-content">
+              <span class="badge">Big Match Hero</span>
+              <h3>Travis Head</h3>
+              <p>
+                Aggressive Australian batter known for fearless stroke play and
+                stepping up in major matches.
+              </p>
+            </div>
+          </article>
 
-    <div class="card">
-      <h3>Virat Kohli</h3>
-      <p>Elite batter who thrives under pressure and in chases.</p>
-    </div>
-  </div>
-</section>
+          <article class="player-card">
+            <img src="virat.jpg" alt="Virat Kohli" />
+            <div class="card-content">
+              <span class="badge">Chase Master</span>
+              <h3>Virat Kohli</h3>
+              <p>
+                One of the best modern batters, known for intensity,
+                consistency, and elite chasing.
+              </p>
+            </div>
+          </article>
 
-    <section id="contact" class="contact container">
-      <h2>Contact</h2>
-      <p>
-        Want to talk cricket? Reach me at:
-      </p>
-      <a href="mailto:karanjoshi2201@gmail.com" class="email-link">karanjoshi2201@gmail.com</a>
+          <article class="player-card">
+            <img src="https://placehold.co/600x400?text=MS+Dhoni" alt="MS Dhoni" />
+            <div class="card-content">
+              <span class="badge">Captain Cool</span>
+              <h3>MS Dhoni</h3>
+              <p>
+                Legendary leader, finisher, and wicketkeeper who stayed calm in
+                the biggest moments.
+              </p>
+            </div>
+          </article>
+
+          <article class="player-card">
+            <img src="https://placehold.co/600x400?text=Sachin+Tendulkar" alt="Sachin Tendulkar" />
+            <div class="card-content">
+              <span class="badge">Legend</span>
+              <h3>Sachin Tendulkar</h3>
+              <p>
+                A global icon of cricket, admired for his skill, longevity, and
+                unmatched impact on the game.
+              </p>
+            </div>
+          </article>
+
+          <article class="player-card">
+            <img src="https://placehold.co/600x400?text=Rohit+Sharma" alt="Rohit Sharma" />
+            <div class="card-content">
+              <span class="badge">Hitman</span>
+              <h3>Rohit Sharma</h3>
+              <p>
+                Elegant stroke-maker known for effortless sixes and huge scores
+                in white-ball cricket.
+              </p>
+            </div>
+          </article>
+
+          <article class="player-card">
+            <img src="https://placehold.co/600x400?text=AB+de+Villiers" alt="AB de Villiers" />
+            <div class="card-content">
+              <span class="badge">360° Genius</span>
+              <h3>AB de Villiers</h3>
+              <p>
+                Famous for innovation, improvisation, and the ability to attack
+                every part of the field.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section spotlight">
+      <div class="container">
+        <div class="spotlight-box">
+          <div class="spotlight-text">
+            <p class="section-label">Spotlight</p>
+            <h2>Why this site stands out</h2>
+            <p>
+              It has a strong sports-style layout, modern card design, bold
+              colors, better spacing, and a real homepage feel instead of a
+              plain beginner page.
+            </p>
+          </div>
+
+          <div class="spotlight-list">
+            <div class="mini-card">Modern dark theme</div>
+            <div class="mini-card">Smooth hover effects</div>
+            <div class="mini-card">Professional sections</div>
+            <div class="mini-card">Mobile-friendly layout</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <div class="contact-box">
+          <p class="section-label">Contact</p>
+          <h2>Let’s talk cricket</h2>
+          <p>
+            Want to connect, share ideas, or just talk about great cricketers?
+          </p>
+          <a href="mailto:karanjoshi2201@gmail.com" class="contact-button">
+            karanjoshi2201@gmail.com
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Cricket is Life</p>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Cricket is Life. Built with passion for the game.</p>
+    </div>
   </footer>
 </body>
 </html>
-
-
-
-
-
