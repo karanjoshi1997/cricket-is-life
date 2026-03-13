@@ -377,3 +377,11 @@ height:220px;
 .nav-links a:hover::after {
   width: 100%;
 }
+
+.about p{
+max-width:850px;
+font-size:1.15rem;
+color:#cbd5e1;
+line-height:1.9;
+margin-top:20px;
+}
