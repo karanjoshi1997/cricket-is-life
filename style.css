@@ -57,10 +57,9 @@ background-image:
 linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)),
 url("vk-rs-background.jpg");
 
-background-size:contain;
+background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
-background-color:#07131f;
 
 display:flex;
 align-items:center;
@@ -99,10 +98,9 @@ background-image:
 linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
 url("stadium.jpg");
 
-background-size:contain;
+background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
-background-color:#07131f;
 
 display:flex;
 align-items:center;
