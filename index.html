@@ -382,7 +382,31 @@ karanjoshi2201@gmail.com
 
 </footer>
 
+
+<script>
+  const galleryImages = document.querySelectorAll(".gallery-image");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxClose = document.getElementById("lightbox-close");
+
+  galleryImages.forEach((image) => {
+    image.addEventListener("click", () => {
+      lightbox.classList.add("show");
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+    });
+  });
+
+  lightboxClose.addEventListener("click", () => {
+    lightbox.classList.remove("show");
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("show");
+    }
+  });
+</script>
+
 </body>
 </html>
-
-
