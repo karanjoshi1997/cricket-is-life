@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
+  <header class="hero reveal">
     <div class="overlay"></div>
 
     <div class="container">
@@ -16,8 +16,9 @@
 
         <div class="nav-links">
           <a href="#about">About</a>
+          <a href="#spotlight">Spotlight</a>
           <a href="#players">Players</a>
-          <a href="#stats">Stats</a>
+          <a href="#dream-xi">Dream XI</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -35,7 +36,7 @@
     </div>
   </header>
 
-  <section class="stadium-banner">
+  <section class="stadium-banner reveal">
     <div class="stadium-overlay">
       <div class="stadium-content">
         <h2>The Spirit of Cricket</h2>
@@ -45,7 +46,7 @@
   </section>
 
   <main>
-    <section id="about" class="section about">
+    <section id="about" class="section about reveal">
       <div class="container">
         <div class="section-header">
           <p class="section-label">About</p>
@@ -53,25 +54,47 @@
         </div>
 
         <p>
-Cricket, to me, is more than a sport — it is a rhythm that beats through my life. 
-It is the sound of leather striking willow, the roar of a crowd rising with hope, 
-and the quiet tension before a ball is bowled. Every match carries a story, every 
-player carries a legacy, and every moment on the field reminds me why this game 
-is loved across generations. 
-
-From legendary centuries to impossible run chases, cricket teaches patience, 
-courage, and belief. It is a game where heroes are born, where heartbreak and 
-glory exist in the same over, and where passion unites millions of fans around 
-the world. This website is my small tribute to that beautiful game — to the 
-players who inspire us, the moments that give us goosebumps, and the timeless 
-spirit that makes cricket more than just a game.
-</p>
+          Cricket, to me, is more than a sport — it is a rhythm that beats through my life.
+          It is the sound of leather striking willow, the roar of a crowd rising with hope,
+          and the quiet tension before a ball is bowled. Every match carries a story, every
+          player carries a legacy, and every moment on the field reminds me why this game
+          is loved across generations. From legendary centuries to impossible run chases,
+          cricket teaches patience, courage, and belief. It is a game where heroes are born,
+          where heartbreak and glory exist in the same over, and where passion unites millions
+          of fans around the world.
+        </p>
       </div>
     </section>
 
-    <section id="stats" class="section stats-section">
+    <section id="spotlight" class="section spotlight reveal">
       <div class="container">
-        <div class="stats-grid">
+        <div class="section-header">
+          <p class="section-label">Featured Player</p>
+          <h2>Spotlight: Virat Kohli</h2>
+        </div>
+
+        <div class="spotlight-card">
+          <div class="spotlight-image">
+            <img src="virat.jpg" alt="Virat Kohli" />
+          </div>
+
+          <div class="spotlight-content">
+            <span class="badge">Chase Master</span>
+            <h3>Virat Kohli</h3>
+            <p>
+              Virat Kohli represents intensity, discipline, and hunger. His ability to
+              chase under pressure and rise in crucial moments makes him one of the most
+              admired cricketers of the modern era.
+            </p>
+            <a href="virat.html" class="btn btn-primary">View Full Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="section stats-section reveal">
+      <div class="container">
+        <div class="stats-grid one-stat">
           <div class="stat-card">
             <h3>6+</h3>
             <p>Featured Players</p>
@@ -80,7 +103,7 @@ spirit that makes cricket more than just a game.
       </div>
     </section>
 
-    <section id="players" class="section players">
+    <section id="players" class="section players reveal">
       <div class="container">
         <div class="section-header">
           <p class="section-label">Featured Players</p>
@@ -88,78 +111,126 @@ spirit that makes cricket more than just a game.
         </div>
 
         <div class="card-grid">
-          <article class="player-card featured">
-            <img src="head.jpg" alt="Travis Head" />
-            <div class="card-content">
-              <span class="badge">Big Match Hero</span>
-              <h3>Travis Head</h3>
-              <p>
-                Aggressive Australian batter known for fearless stroke play and
-                stepping up in major matches.
-              </p>
-            </div>
-          </article>
+          <a class="card-link" href="head.html">
+            <article class="player-card featured">
+              <img src="head.jpg" alt="Travis Head" />
+              <div class="card-content">
+                <span class="badge">Big Match Hero</span>
+                <h3>Travis Head</h3>
+                <p>
+                  Aggressive Australian batter known for fearless stroke play and
+                  stepping up in major matches.
+                </p>
+              </div>
+            </article>
+          </a>
 
-          <article class="player-card">
-            <img src="virat.jpg" alt="Virat Kohli" />
-            <div class="card-content">
-              <span class="badge">Chase Master</span>
-              <h3>Virat Kohli</h3>
-              <p>
-                One of the best modern batters, known for intensity,
-                consistency, and elite chasing.
-              </p>
-            </div>
-          </article>
+          <a class="card-link" href="virat.html">
+            <article class="player-card">
+              <img src="virat.jpg" alt="Virat Kohli" />
+              <div class="card-content">
+                <span class="badge">Chase Master</span>
+                <h3>Virat Kohli</h3>
+                <p>
+                  One of the best modern batters, known for intensity,
+                  consistency, and elite chasing.
+                </p>
+              </div>
+            </article>
+          </a>
 
-          <article class="player-card">
-            <img src="dhoni.jpg" alt="MS Dhoni" />
-            <div class="card-content">
-              <span class="badge">Finisher</span>
-              <h3>MS Dhoni</h3>
-              <p>
-                Legendary captain and calm finisher.
-              </p>
-            </div>
-          </article>
+          <a class="card-link" href="dhoni.html">
+            <article class="player-card">
+              <img src="dhoni.jpg" alt="MS Dhoni" />
+              <div class="card-content">
+                <span class="badge">Finisher</span>
+                <h3>MS Dhoni</h3>
+                <p>
+                  Legendary captain and calm finisher.
+                </p>
+              </div>
+            </article>
+          </a>
 
-          <article class="player-card">
-            <img src="sachin.jpg" alt="Sachin Tendulkar" />
-            <div class="card-content">
-              <span class="badge">God of Cricket</span>
-              <h3>Sachin Tendulkar</h3>
-              <p>
-                One of the greatest cricketers ever.
-              </p>
-            </div>
-          </article>
+          <a class="card-link" href="sachin.html">
+            <article class="player-card">
+              <img src="sachin.jpg" alt="Sachin Tendulkar" />
+              <div class="card-content">
+                <span class="badge">God of Cricket</span>
+                <h3>Sachin Tendulkar</h3>
+                <p>
+                  One of the greatest cricketers ever.
+                </p>
+              </div>
+            </article>
+          </a>
 
-          <article class="player-card">
-            <img src="rohit.jpg" alt="Rohit Sharma" />
-            <div class="card-content">
-              <span class="badge">Hitman</span>
-              <h3>Rohit Sharma</h3>
-              <p>
-                Elegant opener and powerful striker.
-              </p>
-            </div>
-          </article>
+          <a class="card-link" href="rohit.html">
+            <article class="player-card">
+              <img src="rohit.jpg" alt="Rohit Sharma" />
+              <div class="card-content">
+                <span class="badge">Hitman</span>
+                <h3>Rohit Sharma</h3>
+                <p>
+                  Elegant opener and powerful striker.
+                </p>
+              </div>
+            </article>
+          </a>
 
-          <article class="player-card">
-            <img src="abd.jpg" alt="AB de Villiers" />
-            <div class="card-content">
-              <span class="badge">Mr. 360</span>
-              <h3>AB de Villiers</h3>
-              <p>
-                The 360° genius known for creative batting.
-              </p>
-            </div>
-          </article>
+          <a class="card-link" href="abd.html">
+            <article class="player-card">
+              <img src="abd.jpg" alt="AB de Villiers" />
+              <div class="card-content">
+                <span class="badge">Mr. 360</span>
+                <h3>AB de Villiers</h3>
+                <p>
+                  The 360° genius known for creative batting.
+                </p>
+              </div>
+            </article>
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <section id="dream-xi" class="section dream-xi reveal">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Dream XI</p>
+          <h2>My Ultimate Cricket XI</h2>
+        </div>
+
+        <div class="dream-grid">
+          <div class="dream-card">
+            <h3>Openers</h3>
+            <p>Rohit Sharma, Sachin Tendulkar</p>
+          </div>
+          <div class="dream-card">
+            <h3>Top Order</h3>
+            <p>Virat Kohli, AB de Villiers</p>
+          </div>
+          <div class="dream-card">
+            <h3>Middle Order</h3>
+            <p>MS Dhoni, Travis Head</p>
+          </div>
+          <div class="dream-card">
+            <h3>All-Round Balance</h3>
+            <p>Built for pressure, power, and class</p>
+          </div>
+          <div class="dream-card">
+            <h3>Captain</h3>
+            <p>MS Dhoni</p>
+          </div>
+          <div class="dream-card">
+            <h3>Identity</h3>
+            <p>A team of legends, match-winners, and icons</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact reveal">
       <div class="container">
         <div class="contact-box">
           <p class="section-label">Contact</p>
@@ -180,6 +251,21 @@ spirit that makes cricket more than just a game.
       <p>© 2026 Cricket is Life. Built with passion for the game.</p>
     </div>
   </footer>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    reveals.forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
-
