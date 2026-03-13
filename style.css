@@ -171,16 +171,14 @@ text-shadow:
   gap:14px;
 }
 
-.btn{
-  text-decoration:none;
-  font-weight:bold;
-  padding:14px 22px;
-  border-radius:12px;
-  transition:0.2s;
+.btn {
+  position: relative;
+  overflow: hidden;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255,183,3,0.35);
 }
 
 .btn-primary{
@@ -261,47 +259,46 @@ text-shadow:
   gap:24px;
 }
 
-.player-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:0.3s;
+.player-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
-.player-card img{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-  transition:0.4s;
+.player-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
 }
 
-.player-card:hover{
-  transform:translateY(-10px);
+.player-card:hover {
+  transform: translateY(-12px) scale(1.02);
   box-shadow:
-  0 0 22px rgba(255,183,3,0.22),
-  0 18px 40px rgba(0,0,0,0.35);
+    0 0 30px rgba(255,183,3,0.35),
+    0 20px 50px rgba(0,0,0,0.45);
+  border-color: rgba(255,183,3,0.45);
 }
 
-.player-card:hover img{
-  transform:scale(1.08);
+.player-card:hover img {
+  transform: scale(1.1);
 }
 
 .card-content{
   padding:22px;
 }
 
-.badge{
-  display:inline-block;
-  font-size:0.78rem;
-  font-weight:800;
-  background:rgba(255,183,3,0.14);
-  color:var(--accent);
-  border:1px solid rgba(255,183,3,0.22);
-  padding:6px 10px;
-  border-radius:999px;
-  margin-bottom:10px;
+.badge {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.player-card:hover .badge {
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px rgba(255,183,3,0.35);
 }
 
 .contact-box{
@@ -360,4 +357,23 @@ min-height:auto;
 height:220px;
 }
 
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
