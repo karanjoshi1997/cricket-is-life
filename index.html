@@ -256,7 +256,7 @@
         </div>
 
         <p class="section-note">
-          Select a match below. The fantasy selector will automatically show both teams in two columns.
+          Choose a match below. The fantasy selector will show both teams in two columns so everyone can click players easily.
         </p>
 
         <div class="schedule-grid" id="scheduleGrid"></div>
@@ -271,6 +271,7 @@
         </div>
 
         <div class="team-tabs" id="teamTabs"></div>
+
         <div class="team-roster-card">
           <h3 id="activeTeamTitle">Team Players</h3>
           <div class="team-player-grid" id="teamPlayerGrid"></div>
@@ -286,17 +287,17 @@
         </div>
 
         <p class="fantasy-intro">
-          Pick your 11 before the match. When you choose a fixture, both teams appear side by side so everyone can build their teams easily.
+          Select a match, click a friend card, then click players from the two team columns. No manual typing needed.
         </p>
 
         <div class="fantasy-rules">
           <h3>League Rules</h3>
           <ul>
-            <li>Each friend selects 11 players.</li>
+            <li>Each friend selects exactly 11 players.</li>
             <li>Captain gets 2x points.</li>
             <li>Vice-Captain gets 1.5x points.</li>
-            <li>Enter points after the match ends.</li>
-            <li>Only select from the two teams playing that match.</li>
+            <li>Only select players from the two teams in that match.</li>
+            <li>Enter total match points after the game ends.</li>
           </ul>
         </div>
 
@@ -309,9 +310,9 @@
           </div>
 
           <div class="match-box">
-            <h3>League Controls</h3>
+            <h3>Active Editor</h3>
+            <p id="activeFriendText">Click a friend card to start selecting players.</p>
             <button class="action-btn danger-btn" onclick="resetLeague()">Reset League</button>
-            <p>This clears saved teams, history and totals from your browser.</p>
           </div>
         </div>
 
@@ -357,6 +358,15 @@
             </thead>
             <tbody id="historyBody"></tbody>
           </table>
+        </div>
+
+        <div class="official-link-box">
+          <p>
+            For official live fixtures and any in-season changes, use the official IPL fixtures page:
+          </p>
+          <a class="contact-button" href="https://www.iplt20.com/matches/fixtures" target="_blank" rel="noopener noreferrer">
+            Open Official IPL 2026 Fixtures
+          </a>
         </div>
       </div>
     </section>
@@ -461,81 +471,91 @@
   <script>
     const squadData = {
       "CSK": [
-        "Ruturaj Gaikwad", "MS Dhoni", "Sanju Samson", "Dewald Brevis", "Ayush Mhatre",
-        "Urvil Patel", "Sarfaraz Khan", "Shivam Dube", "Aman Khan", "Jamie Overton",
-        "Matthew Short", "Noor Ahmad", "Rahul Chahar", "Khaleel Ahmed", "Mukesh Choudhary",
-        "Shreyas Gopal", "Anshul Kamboj", "Matt Henry", "Akeal Hosein", "Spencer Johnson"
+        "Ruturaj Gaikwad","MS Dhoni","Sanju Samson","Dewald Brevis","Ayush Mhatre",
+        "Kartik Sharma","Sarfaraz Khan","Urvil Patel","Jamie Overton","Ramakrishna Ghosh",
+        "Prashant Veer","Matthew William Short","Aman Khan","Zak Foulkes","Shivam Dube",
+        "Khaleel Ahmed","Noor Ahmad","Anshul Kamboj","Mukesh Choudhary","Shreyas Gopal",
+        "Gurjapneet Singh","Akeal Hosein","Matt Henry","Rahul Chahar","Spencer Johnson"
       ],
       "MI": [
-        "Rohit Sharma", "Suryakumar Yadav", "Tilak Varma", "Hardik Pandya", "Jasprit Bumrah",
-        "Naman Dhir", "Robin Minz", "Ryan Rickelton", "Will Jacks", "Mitchell Santner",
-        "Deepak Chahar", "Trent Boult", "Reece Topley", "Mujeeb Ur Rahman", "Corbin Bosch",
-        "Karn Sharma", "Ashwani Kumar", "Raj Angad Bawa", "Bevon Jacobs", "Arjun Tendulkar"
+        "Rohit Sharma","Surya Kumar Yadav","Robin Minz","Sherfane Rutherford","Ryan Rickelton",
+        "Quinton de Kock","Danish Malewar","N. Tilak Varma","Hardik Pandya","Naman Dhir",
+        "Mitchell Santner","Raj Angad Bawa","Atharva Ankolekar","Mayank Rawat","Corbin Bosch",
+        "Will Jacks","Shardul Thakur","Trent Boult","Mayank Markande","Deepak Chahar",
+        "Ashwani Kumar","Raghu Sharma","Mohammad Izhar","Allah Ghazanfar","Jasprit Bumrah"
       ],
       "RCB": [
-        "Virat Kohli", "Rajat Patidar", "Phil Salt", "Liam Livingstone", "Jitesh Sharma",
-        "Tim David", "Romario Shepherd", "Krunal Pandya", "Bhuvneshwar Kumar", "Josh Hazlewood",
-        "Yash Dayal", "Suyash Sharma", "Devdutt Padikkal", "Rasikh Dar", "Swapnil Singh",
-        "Jacob Bethell", "Nuwan Thushara", "Mohit Rathee", "Abhinandan Singh", "Manoj Bhandage"
+        "Rajat Patidar","Devdutt Padikkal","Virat Kohli","Phil Salt","Jitesh Sharma",
+        "Jordan Cox","Krunal Pandya","Swapnil Singh","Tim David","Romario Shepherd",
+        "Jacob Bethell","Venkatesh Iyer","Satvik Deswal","Mangesh Yadav","Vicky Ostwal",
+        "Vihaan Malhotra","Kanishk Chouhan","Josh Hazlewood","Rasikh Dar","Suyash Sharma",
+        "Bhuvneshwar Kumar","Nuwan Thushara","Abhinandan Singh","Jacob Duffy","Yash Dayal"
       ],
       "KKR": [
-        "Ajinkya Rahane", "Rinku Singh", "Venkatesh Iyer", "Sunil Narine", "Andre Russell",
-        "Quinton de Kock", "Rahmanullah Gurbaz", "Angkrish Raghuvanshi", "Ramandeep Singh", "Varun Chakaravarthy",
-        "Harshit Rana", "Anrich Nortje", "Vaibhav Arora", "Mayank Markande", "Moeen Ali",
-        "Rovman Powell", "Spencer Johnson", "Manish Pandey", "Chetan Sakariya", "Anukul Roy"
+        "Ajinkya Rahane","Rinku Singh","Angkrish Raghuvanshi","Manish Pandey","Finn Allen",
+        "Tejasvi Singh","Rahul Tripathi","Tim Seifert","Rovman Powell","Anukul Roy",
+        "Cameron Green","Sarthak Ranjan","Daksh Kamra","Rachin Ravindra","Ramandeep Singh",
+        "Sunil Narine","Blessing Muzarabani","Vaibhav Arora","Matheesha Pathirana","Kartik Tyagi",
+        "Prashant Solanki","Saurabh Dubey","Navdeep Saini","Umran Malik","Varun Chakaravarthy"
       ],
       "RR": [
-        "Sanju Samson", "Yashasvi Jaiswal", "Riyan Parag", "Dhruv Jurel", "Shimron Hetmyer",
-        "Nitish Rana", "Wanindu Hasaranga", "Jofra Archer", "Maheesh Theekshana", "Tushar Deshpande",
-        "Sandeep Sharma", "Fazalhaq Farooqi", "Akash Madhwal", "Shubham Dubey", "Kunal Singh Rathore",
-        "Kumar Kartikeya", "Ashok Sharma", "Yudhvir Singh", "Nandre Burger", "Tom Kohler-Cadmore"
+        "Shubham Dubey","Vaibhav Sooryavanshi","Donovan Ferreira","Lhuan-dre Pretorious","Ravi Singh",
+        "Aman Rao Perala","Shimron Hetmyer","Yashasvi Jaiswal","Dhruv Jurel","Riyan Parag",
+        "Yudhvir Singh Charak","Ravindra Jadeja","Dasun Shanaka","Jofra Archer","Tushar Deshpande",
+        "Kwena Maphaka","Ravi Bishnoi","Sushant Mishra","Yash Raj Punja","Vignesh Puthur",
+        "Brijesh Sharma","Adam Milne","Kuldeep Sen","Sandeep Sharma","Nandre Burger"
       ],
       "SRH": [
-        "Pat Cummins", "Travis Head", "Abhishek Sharma", "Heinrich Klaasen", "Ishan Kishan",
-        "Nitish Kumar Reddy", "Rahul Chahar", "Mohammed Shami", "Harshal Patel", "Adam Zampa",
-        "Atharva Taide", "Abhinav Manohar", "Kamindu Mendis", "Simarjeet Singh", "Zeeshan Ansari",
-        "Jaydev Unadkat", "Eshan Malinga", "Sachin Baby", "Wiaan Mulder", "Aniket Verma"
+        "Ishan Kishan","Aniket Verma","Smaran Ravichandran","Salil Arora","Heinrich Klaasen",
+        "Travis Head","Harshal Patel","Kamindu Mendis","Harsh Dubey","Brydon Carse",
+        "Shivang Kumar","Krains Fuletra","Liam Livingstone","David Payne","Abhishek Sharma",
+        "Nitish Kumar Reddy","Pat Cummins","Zeeshan Ansari","Jaydev Unadkat","Eshan Malinga",
+        "Sakib Hussain","Onkar Tarmale","Amit Kumar","Praful Hinge","Shivam Mavi"
       ],
       "DC": [
-        "KL Rahul", "Faf du Plessis", "Jake Fraser-McGurk", "Tristan Stubbs", "Abishek Porel",
-        "Axar Patel", "Kuldeep Yadav", "Mitchell Starc", "Mukesh Kumar", "T Natarajan",
-        "Ashutosh Sharma", "Mohit Sharma", "Sameer Rizvi", "Donovan Ferreira", "Dushmantha Chameera",
-        "Karun Nair", "Madhav Tiwari", "Tripurana Vijay", "Darshan Nalkande", "Vipraj Nigam"
+        "KL Rahul","Karun Nair","David Miller","Ben Duckett","Pathum Nissanka",
+        "Sahil Parakh","Prithvi Shaw","Abishek Porel","Tristan Stubbs","Axar Patel",
+        "Sameer Rizvi","Ashutosh Sharma","Vipraj Nigam","Ajay Mandal","Tripurana Vijay",
+        "Madhav Tiwari","Nitish Rana","Mitchell Starc","T. Natarajan","Mukesh Kumar",
+        "Dushmantha Chameera","Auqib Nabi","Lungisani Ngidi","Kyle Jamieson","Kuldeep Yadav"
       ],
       "GT": [
-        "Shubman Gill", "Jos Buttler", "Sai Sudharsan", "Rahul Tewatia", "Shahrukh Khan",
-        "Rashid Khan", "Washington Sundar", "Mohammed Siraj", "Prasidh Krishna", "Kagiso Rabada",
-        "Sherfane Rutherford", "Glenn Phillips", "Sai Kishore", "Ishant Sharma", "Arshad Khan",
-        "Mahipal Lomror", "Nishant Sindhu", "Kumar Kushagra", "Gerald Coetzee", "Anuj Rawat"
+        "Shubman Gill","Jos Buttler","Kumar Kushagra","Anuj Rawat","Tom Banton",
+        "Glenn Phillips","Sai Sudharsan","Nishant Sindhu","Washington Sundar","Mohd. Arshad Khan",
+        "Sai Kishore","Jayant Yadav","Jason Holder","Rahul Tewatia","Shahrukh Khan",
+        "Kagiso Rabada","Mohammed Siraj","Prasidh Krishna","Manav Suthar","Gurnoor Singh Brar",
+        "Ishant Sharma","Ashok Sharma","Luke Wood","Kulwant Khejroliya","Rashid Khan"
       ],
       "PBKS": [
-        "Shreyas Iyer", "Prabhsimran Singh", "Marcus Stoinis", "Glenn Maxwell", "Nehal Wadhera",
-        "Josh Inglis", "Marco Jansen", "Arshdeep Singh", "Yuzvendra Chahal", "Lockie Ferguson",
-        "Harpreet Brar", "Priyansh Arya", "Azmatullah Omarzai", "Vijaykumar Vyshak", "Yash Thakur",
-        "Kuldeep Sen", "Xavier Bartlett", "Aaron Hardie", "Suryansh Shedge", "Musheer Khan"
+        "Shreyas Iyer","Josh Inglis","Harnoor Pannu","Nehal Wadhera","Pyla Avinash",
+        "Vishnu Vinod","Prabhsimran Singh","Shashank Singh","Aaron Hardie","Marco Jansen",
+        "Marcus Stoinis","Priyansh Arya","Harpreet Brar","Azmatullah Omarzai","Suryansh Shedge",
+        "Musheer Khan","Mitch Owen","Kuldeep Sen","Xavier Bartlett","Yuzvendra Chahal",
+        "Vyshak Vijaykumar","Yash Thakur","Pravin Dubey","Arshdeep Singh","Kyle Jamieson"
       ],
       "LSG": [
-        "Rishabh Pant", "Nicholas Pooran", "David Miller", "Aiden Markram", "Mitchell Marsh",
-        "Ayush Badoni", "Abdul Samad", "Shardul Thakur", "Avesh Khan", "Ravi Bishnoi",
-        "Mohsin Khan", "Akash Deep", "Prince Yadav", "Shahbaz Ahmed", "Matthew Breetzke",
-        "M Siddharth", "Digvesh Rathi", "Himmat Singh", "Yuvraj Chaudhary", "Arshin Kulkarni"
+        "Rishabh Pant","Aiden Markram","Himmat Singh","Matthew Breetzke","Mukul Choudhary",
+        "Akshat Raghuwanshi","Josh Inglis","Nicholas Pooran","Mitchell Marsh","Abdul Samad",
+        "Shahbaz Ahamad","Arshin Kulkarni","Wanindu Hasaranga","Ayush Badoni","Mohammad Shami",
+        "Avesh Khan","M. Siddharth","Digvesh Singh","Akash Singh","Prince Yadav",
+        "Arjun Tendulkar","Anrich Nortje","Naman Tiwari","Mayank Yadav","Mohsin Khan"
       ]
     };
 
     const matches = [
-      { id: "match1", label: "RCB vs SRH", team1: "RCB", team2: "SRH", date: "28 Mar 2026", venue: "Bengaluru" },
-      { id: "match2", label: "MI vs KKR", team1: "MI", team2: "KKR", date: "29 Mar 2026", venue: "Mumbai" },
-      { id: "match3", label: "RR vs CSK", team1: "RR", team2: "CSK", date: "30 Mar 2026", venue: "Jaipur" },
-      { id: "match4", label: "PBKS vs GT", team1: "PBKS", team2: "GT", date: "31 Mar 2026", venue: "Mullanpur" },
-      { id: "match5", label: "LSG vs DC", team1: "LSG", team2: "DC", date: "01 Apr 2026", venue: "Lucknow" },
-      { id: "match6", label: "KKR vs SRH", team1: "KKR", team2: "SRH", date: "02 Apr 2026", venue: "Kolkata" },
-      { id: "match7", label: "CSK vs PBKS", team1: "CSK", team2: "PBKS", date: "03 Apr 2026", venue: "Chennai" },
-      { id: "match8", label: "DC vs MI", team1: "DC", team2: "MI", date: "04 Apr 2026", venue: "Delhi" },
-      { id: "match9", label: "GT vs RR", team1: "GT", team2: "RR", date: "04 Apr 2026", venue: "Ahmedabad" },
-      { id: "match10", label: "SRH vs LSG", team1: "SRH", team2: "LSG", date: "05 Apr 2026", venue: "Hyderabad" },
-      { id: "match11", label: "RCB vs CSK", team1: "RCB", team2: "CSK", date: "05 Apr 2026", venue: "Bengaluru" },
-      { id: "match12", label: "KKR vs PBKS", team1: "KKR", team2: "PBKS", date: "06 Apr 2026", venue: "Kolkata" },
-      { id: "match13", label: "RR vs MI", team1: "RR", team2: "MI", date: "07 Apr 2026", venue: "Jaipur" }
+      { id: "m1", label: "RCB vs SRH", team1: "RCB", team2: "SRH", date: "28 Mar 2026", venue: "Bengaluru" },
+      { id: "m2", label: "MI vs KKR", team1: "MI", team2: "KKR", date: "29 Mar 2026", venue: "Mumbai" },
+      { id: "m3", label: "RR vs CSK", team1: "RR", team2: "CSK", date: "30 Mar 2026", venue: "Jaipur" },
+      { id: "m4", label: "PBKS vs GT", team1: "PBKS", team2: "GT", date: "31 Mar 2026", venue: "Mullanpur" },
+      { id: "m5", label: "LSG vs DC", team1: "LSG", team2: "DC", date: "01 Apr 2026", venue: "Lucknow" },
+      { id: "m6", label: "KKR vs SRH", team1: "KKR", team2: "SRH", date: "02 Apr 2026", venue: "Kolkata" },
+      { id: "m7", label: "CSK vs PBKS", team1: "CSK", team2: "PBKS", date: "03 Apr 2026", venue: "Chennai" },
+      { id: "m8", label: "DC vs MI", team1: "DC", team2: "MI", date: "04 Apr 2026", venue: "Delhi" },
+      { id: "m9", label: "GT vs RR", team1: "GT", team2: "RR", date: "04 Apr 2026", venue: "Ahmedabad" },
+      { id: "m10", label: "SRH vs LSG", team1: "SRH", team2: "LSG", date: "05 Apr 2026", venue: "Hyderabad" },
+      { id: "m11", label: "RCB vs CSK", team1: "RCB", team2: "CSK", date: "05 Apr 2026", venue: "Bengaluru" },
+      { id: "m12", label: "KKR vs PBKS", team1: "KKR", team2: "PBKS", date: "06 Apr 2026", venue: "Kolkata" },
+      { id: "m13", label: "RR vs MI", team1: "RR", team2: "MI", date: "07 Apr 2026", venue: "Jaipur" }
     ];
 
     const defaultFriends = [
@@ -546,19 +566,28 @@
       { id: 5, friendName: "Vishal", players: [], captain: "", viceCaptain: "", totalPoints: 0 }
     ];
 
-    let friends = JSON.parse(localStorage.getItem("iplFantasyFriendsV3")) || defaultFriends;
-    let currentMatchId = localStorage.getItem("iplFantasyCurrentMatchV3") || matches[0].id;
-    let history = JSON.parse(localStorage.getItem("iplFantasyHistoryV3")) || [];
+    let friends = JSON.parse(localStorage.getItem("iplFantasyFriendsV4")) || defaultFriends;
+    let currentMatchId = localStorage.getItem("iplFantasyCurrentMatchV4") || matches[0].id;
+    let history = JSON.parse(localStorage.getItem("iplFantasyHistoryV4")) || [];
     let activeTeamTab = Object.keys(squadData)[0];
+    let activeFriendIndex = null;
 
     function saveAllData() {
-      localStorage.setItem("iplFantasyFriendsV3", JSON.stringify(friends));
-      localStorage.setItem("iplFantasyCurrentMatchV3", currentMatchId);
-      localStorage.setItem("iplFantasyHistoryV3", JSON.stringify(history));
+      localStorage.setItem("iplFantasyFriendsV4", JSON.stringify(friends));
+      localStorage.setItem("iplFantasyCurrentMatchV4", currentMatchId);
+      localStorage.setItem("iplFantasyHistoryV4", JSON.stringify(history));
     }
 
     function getCurrentMatch() {
       return matches.find(match => match.id === currentMatchId) || matches[0];
+    }
+
+    function getAvailablePlayersForCurrentMatch() {
+      const currentMatch = getCurrentMatch();
+      return [
+        ...squadData[currentMatch.team1],
+        ...squadData[currentMatch.team2]
+      ];
     }
 
     function renderSchedule() {
@@ -568,6 +597,8 @@
       matches.forEach(match => {
         const card = document.createElement("div");
         card.className = "schedule-card";
+        if (match.id === currentMatchId) card.classList.add("active-card");
+
         card.innerHTML = `
           <h3>${match.label}</h3>
           <p><strong>Date:</strong> ${match.date}</p>
@@ -585,20 +616,16 @@
 
     function loadMatchFromCard(matchId) {
       currentMatchId = matchId;
+      activeFriendIndex = null;
       saveAllData();
-      renderSchedule();
-      renderCurrentMatch();
-      renderMatchPlayerColumns();
-      renderFriends();
+      renderEverything();
     }
 
     function setSelectedMatch() {
       currentMatchId = document.getElementById("matchSelector").value;
+      activeFriendIndex = null;
       saveAllData();
-      renderCurrentMatch();
-      renderMatchPlayerColumns();
-      renderFriends();
-      renderSchedule();
+      renderEverything();
     }
 
     function renderCurrentMatch() {
@@ -633,6 +660,16 @@
         .join("");
     }
 
+    function renderActiveFriendText() {
+      const el = document.getElementById("activeFriendText");
+      if (activeFriendIndex === null) {
+        el.textContent = "Click a friend card to start selecting players.";
+      } else {
+        const friend = friends[activeFriendIndex];
+        el.textContent = `Selecting players for ${friend.friendName} (${friend.players.length}/11 selected)`;
+      }
+    }
+
     function renderMatchPlayerColumns() {
       const currentMatch = getCurrentMatch();
       const leftTitle = document.getElementById("leftTeamTitle");
@@ -644,12 +681,100 @@
       rightTitle.textContent = currentMatch.team2;
 
       leftPlayers.innerHTML = squadData[currentMatch.team1]
-        .map(player => `<div class="pick-player-item">${player}</div>`)
+        .map(player => buildPlayerButton(player))
         .join("");
 
       rightPlayers.innerHTML = squadData[currentMatch.team2]
-        .map(player => `<div class="pick-player-item">${player}</div>`)
+        .map(player => buildPlayerButton(player))
         .join("");
+    }
+
+    function buildPlayerButton(player) {
+      const selected = activeFriendIndex !== null && friends[activeFriendIndex].players.includes(player);
+      const disabled = activeFriendIndex === null;
+      return `
+        <button
+          class="pick-player-item ${selected ? 'selected-player' : ''}"
+          ${disabled ? 'disabled' : ''}
+          onclick="togglePlayerSelection('${player.replace(/'/g, "\\'")}')"
+        >
+          ${player}
+        </button>
+      `;
+    }
+
+    function selectFriend(index) {
+      activeFriendIndex = index;
+      renderActiveFriendText();
+      renderFriends();
+      renderMatchPlayerColumns();
+    }
+
+    function togglePlayerSelection(player) {
+      if (activeFriendIndex === null) return;
+
+      const friend = friends[activeFriendIndex];
+      const alreadySelected = friend.players.includes(player);
+
+      if (alreadySelected) {
+        friend.players = friend.players.filter(p => p !== player);
+        if (friend.captain === player) friend.captain = "";
+        if (friend.viceCaptain === player) friend.viceCaptain = "";
+      } else {
+        if (friend.players.length >= 11) {
+          alert("You can select only 11 players.");
+          return;
+        }
+        friend.players.push(player);
+      }
+
+      saveAllData();
+      renderActiveFriendText();
+      renderFriends();
+      renderMatchPlayerColumns();
+      renderLeaderboard();
+    }
+
+    function updateFriendName(index, value) {
+      friends[index].friendName = value.trim() || `Friend ${index + 1}`;
+      saveAllData();
+      renderFriends();
+      renderLeaderboard();
+      renderHistory();
+      renderActiveFriendText();
+    }
+
+    function updateCaptain(index, value) {
+      friends[index].captain = value;
+      if (friends[index].viceCaptain === value) {
+        friends[index].viceCaptain = "";
+      }
+      saveAllData();
+      renderFriends();
+      renderLeaderboard();
+    }
+
+    function updateViceCaptain(index, value) {
+      friends[index].viceCaptain = value;
+      if (friends[index].captain === value) {
+        friends[index].captain = "";
+      }
+      saveAllData();
+      renderFriends();
+      renderLeaderboard();
+    }
+
+    function clearFriendSelection(index) {
+      friends[index].players = [];
+      friends[index].captain = "";
+      friends[index].viceCaptain = "";
+      if (activeFriendIndex === index) {
+        renderMatchPlayerColumns();
+        renderActiveFriendText();
+      }
+      saveAllData();
+      renderFriends();
+      renderLeaderboard();
     }
 
     function renderFriends() {
@@ -662,59 +787,62 @@
           item => item.matchId === currentMatch.id && item.friendName === friend.friendName
         );
 
-        const card = document.createElement("div");
-        card.className = "friend-card";
+        const friendCard = document.createElement("div");
+        friendCard.className = `friend-card ${activeFriendIndex === index ? 'active-friend-card' : ''}`;
 
-        card.innerHTML = `
-          <h3>${friend.friendName}</h3>
+        const selectedOptions = friend.players.map(player =>
+          `<option value="${player}">${player}</option>`
+        ).join("");
+
+        friendCard.innerHTML = `
+          <div class="friend-card-top">
+            <h3>${friend.friendName}</h3>
+            <button class="small-btn" onclick="selectFriend(${index})">Select Players</button>
+          </div>
 
           <label>Friend Name</label>
-          <input type="text" id="name-${index}" value="${friend.friendName}" />
+          <input type="text" value="${friend.friendName}" onchange="updateFriendName(${index}, this.value)" />
 
-          <label>11 Players (comma separated)</label>
-          <textarea id="players-${index}" placeholder="Example: Rohit Sharma, Jasprit Bumrah, MS Dhoni">${friend.players.join(", ")}</textarea>
+          <label>Selected Players (${friend.players.length}/11)</label>
+          <div class="selected-player-list">
+            ${friend.players.length
+              ? friend.players.map(player => `<span class="selected-pill">${player}</span>`).join("")
+              : `<span class="empty-note">No players selected yet.</span>`}
+          </div>
 
           <label>Captain</label>
-          <input type="text" id="captain-${index}" value="${friend.captain}" placeholder="Enter captain name" />
+          <select onchange="updateCaptain(${index}, this.value)">
+            <option value="">Select captain</option>
+            ${friend.players.map(player =>
+              `<option value="${player}" ${friend.captain === player ? "selected" : ""}>${player}</option>`
+            ).join("")}
+          </select>
 
           <label>Vice-Captain</label>
-          <input type="text" id="vice-${index}" value="${friend.viceCaptain}" placeholder="Enter vice-captain name" />
+          <select onchange="updateViceCaptain(${index}, this.value)">
+            <option value="">Select vice-captain</option>
+            ${friend.players.map(player =>
+              `<option value="${player}" ${friend.viceCaptain === player ? "selected" : ""}>${player}</option>`
+            ).join("")}
+          </select>
 
-          <button class="action-btn" onclick="saveTeam(${index})">Save Team</button>
+          <div class="friend-actions">
+            <button class="action-btn small-action" onclick="clearFriendSelection(${index})">Clear Team</button>
+          </div>
 
           <hr class="card-divider" />
 
           <label>Points for ${currentMatch.label}</label>
           <input type="number" id="points-${index}" value="${savedMatchRecord ? savedMatchRecord.points : ''}" placeholder="Enter match points" />
-
           <button class="action-btn" onclick="saveMatchPoints(${index})">Save Match Points</button>
 
-          <p><strong>Current Team:</strong> ${friend.players.length ? friend.players.join(", ") : "-"}</p>
           <p><strong>Captain:</strong> ${friend.captain || "-"}</p>
           <p><strong>Vice-Captain:</strong> ${friend.viceCaptain || "-"}</p>
           <p class="total-points">Total Points: ${friend.totalPoints}</p>
         `;
 
-        grid.appendChild(card);
+        grid.appendChild(friendCard);
       });
-    }
-
-    function saveTeam(index) {
-      const playersText = document.getElementById(`players-${index}`).value.trim();
-      const playersArray = playersText
-        .split(",")
-        .map(player => player.trim())
-        .filter(Boolean);
-
-      friends[index].friendName = document.getElementById(`name-${index}`).value.trim() || `Friend ${index + 1}`;
-      friends[index].players = playersArray;
-      friends[index].captain = document.getElementById(`captain-${index}`).value.trim();
-      friends[index].viceCaptain = document.getElementById(`vice-${index}`).value.trim();
-
-      saveAllData();
-      renderFriends();
-      renderLeaderboard();
-      renderHistory();
     }
 
     function recalculateTotals() {
@@ -727,11 +855,21 @@
 
     function saveMatchPoints(index) {
       const currentMatch = getCurrentMatch();
-      const friendName = friends[index].friendName;
+      const friend = friends[index];
       const points = parseFloat(document.getElementById(`points-${index}`).value) || 0;
 
+      if (friend.players.length !== 11) {
+        alert(friend.friendName + " must have exactly 11 players before saving match points.");
+        return;
+      }
+
+      if (!friend.captain || !friend.viceCaptain) {
+        alert(friend.friendName + " must have both captain and vice-captain selected.");
+        return;
+      }
+
       const existingIndex = history.findIndex(
-        item => item.matchId === currentMatch.id && item.friendName === friendName
+        item => item.matchId === currentMatch.id && item.friendName === friend.friendName
       );
 
       if (existingIndex !== -1) {
@@ -740,16 +878,16 @@
         history.push({
           matchId: currentMatch.id,
           matchLabel: currentMatch.label,
-          friendName,
+          friendName: friend.friendName,
           points
         });
       }
 
       recalculateTotals();
       saveAllData();
-      renderFriends();
       renderLeaderboard();
       renderHistory();
+      renderFriends();
     }
 
     function renderLeaderboard() {
@@ -798,28 +936,30 @@
       friends = JSON.parse(JSON.stringify(defaultFriends));
       currentMatchId = matches[0].id;
       history = [];
+      activeFriendIndex = null;
 
-      localStorage.removeItem("iplFantasyFriendsV3");
-      localStorage.removeItem("iplFantasyCurrentMatchV3");
-      localStorage.removeItem("iplFantasyHistoryV3");
+      localStorage.removeItem("iplFantasyFriendsV4");
+      localStorage.removeItem("iplFantasyCurrentMatchV4");
+      localStorage.removeItem("iplFantasyHistoryV4");
 
       saveAllData();
-      initFantasyLeague();
+      renderEverything();
     }
 
-    function initFantasyLeague() {
+    function renderEverything() {
       recalculateTotals();
       renderSchedule();
       renderCurrentMatch();
       renderTeamTabs();
       renderActiveTeamPlayers();
+      renderActiveFriendText();
       renderMatchPlayerColumns();
       renderFriends();
       renderLeaderboard();
       renderHistory();
     }
 
-    initFantasyLeague();
+    renderEverything();
   </script>
 
   <script>
