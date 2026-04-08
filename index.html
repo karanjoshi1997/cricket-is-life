@@ -321,46 +321,54 @@ England’s ultimate match winner and heroic all-rounder.
 
 
 
-<section id="dream-xi" class="section dream-xi">
+<section id="dream-xi" class="section dream-xi fantasy-section">
 
 <div class="container">
 
 <div class="section-header">
-<p class="section-label">Dream XI</p>
-<h2>My Ultimate Cricket XI</h2>
+<p class="section-label">IPL 2026 Fantasy League</p>
+<h2>5 Friends Contest</h2>
 </div>
 
-<div class="formation">
+<p style="text-align:center; max-width:800px; margin:0 auto 30px; color:#ddd;">
+Create teams for Karan, Yash, Abhimanyu, Ishan and Vishal, select captain and vice-captain,
+and update points after each IPL 2026 match.
+</p>
 
-<div class="formation-row two">
-<div class="formation-player">Sachin Tendulkar</div>
-<div class="formation-player">Rohit Sharma</div>
+<div class="fantasy-rules">
+  <h3>League Rules</h3>
+  <ul>
+    <li>Each friend selects 11 players.</li>
+    <li>Each team must have 1 Captain and 1 Vice-Captain.</li>
+    <li>Captain gets 2x points.</li>
+    <li>Vice-Captain gets 1.5x points.</li>
+    <li>After each match, enter total match points manually.</li>
+  </ul>
 </div>
 
-<div class="formation-row one">
-<div class="formation-player">Virat Kohli</div>
+<div class="match-box">
+  <h3>Current Match</h3>
+  <input type="text" id="matchName" placeholder="Example: CSK vs MI - Match 12">
+  <button onclick="saveMatchName()">Save Match</button>
+  <p id="currentMatchText">No match selected yet.</p>
 </div>
 
-<div class="formation-row three">
-<div class="formation-player">AB de Villiers</div>
-<div class="formation-player">Ben Stokes</div>
-<div class="formation-player">Travis Head</div>
-</div>
+<div class="friends-grid" id="friendsGrid"></div>
 
-<div class="formation-row one">
-<div class="formation-player">MS Dhoni</div>
-</div>
-
-<div class="formation-row one">
-<div class="formation-player">R. Ashwin</div>
-</div>
-
-<div class="formation-row three">
-<div class="formation-player">Jasprit Bumrah</div>
-<div class="formation-player">Josh Hazlewood</div>
-<div class="formation-player">Mitchell Starc</div>
-</div>
-
+<div class="leaderboard-box">
+  <h3>Leaderboard</h3>
+  <table class="leaderboard-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Friend</th>
+        <th>Total Points</th>
+        <th>Captain</th>
+        <th>Vice-Captain</th>
+      </tr>
+    </thead>
+    <tbody id="leaderboardBody"></tbody>
+  </table>
 </div>
 
 </div>
@@ -514,3 +522,4 @@ lightbox.addEventListener("click", (e) => {
 
 </body>
 </html>
+
