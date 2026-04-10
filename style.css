@@ -776,3 +776,8 @@ img {
   background: #f6c453;
   color: #111111;
 }
+
+.today-match {
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 15px #00ffcc;
+}
