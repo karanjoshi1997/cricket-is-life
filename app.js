@@ -99,7 +99,18 @@ function renderSchedule() {
 
   matches.forEach(match => {
     const card = document.createElement("div");
-    card.className = `schedule-card ${match.id === currentMatchId ? "active-card" : ""}`;
+const today = new Date();
+today.setHours(0,0,0,0);
+
+const matchDate = parseMatchDate(match.date);
+
+let extraClass = "";
+
+if (matchDate.getTime() === today.getTime()) {
+  extraClass = "today-match";
+}
+
+card.className = `schedule-card ${match.id === currentMatchId ? "active-card" : ""} ${extraClass}`;
     card.innerHTML = `
       <h3>${match.label}</h3>
       <p><strong>Date:</strong> ${match.date}</p>
@@ -117,7 +128,13 @@ function renderSchedule() {
   });
 
   grid.querySelectorAll("button[data-match-id]").forEach(btn => {
-    btn.addEventListener("click", () => {
+btn.addEventListener("click", async () => {
+  const match = getCurrentMatch();
+
+  if (isMatchLocked(match)) {
+    alert("Team selection is locked! Match has started.");
+    return;
+  }
       currentMatchId = btn.dataset.matchId;
       activeFriend = null;
       renderEverything();
@@ -255,7 +272,11 @@ function renderFriends() {
   });
 
   grid.querySelectorAll("[data-captain]").forEach(select => {
-    select.addEventListener("change", async () => {
+const match = getCurrentMatch();
+if (isMatchLocked(match)) {
+  alert("Match started! Cannot edit team.");
+  return;
+}
       const name = select.dataset.captain;
       selections[name].captain = select.value;
       if (selections[name].viceCaptain === select.value) selections[name].viceCaptain = "";
