@@ -364,3 +364,18 @@ function renderEverything(full = true) {
   listenSelections();
   listenLeaderboard();
 })();
+
+function isMatchLocked(match) {
+  const now = new Date();
+
+  const [time, modifier] = match.time.split(" ");
+  let [hours, minutes] = time.split(":").map(Number);
+
+  if (modifier === "PM" && hours !== 12) hours += 12;
+  if (modifier === "AM" && hours === 12) hours = 0;
+
+  const matchDate = new Date(match.date);
+  matchDate.setHours(hours, minutes, 0, 0);
+
+  return now >= matchDate;
+}
