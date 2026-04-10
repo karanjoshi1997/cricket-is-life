@@ -1,3 +1,8 @@
+const entered = prompt("Enter Admin Password");
+if (entered !== "karan-admin-2026") {
+  document.body.innerHTML = "<h1>Access Denied</h1>";
+  throw new Error("Unauthorized");
+}
 const db = window.firebaseDb;
 const { doc, getDoc, getDocs, setDoc, collection, serverTimestamp } = window.firebaseFns;
 
