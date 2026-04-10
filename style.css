@@ -777,6 +777,128 @@ img {
   color: #111111;
 }
 
+.schedule-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.live-badge {
+  display: inline-block;
+  background: #00c16a;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.today-match {
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 16px rgba(0, 255, 204, 0.35);
+}
+
+.rank-cell {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.top-rank-row {
+  background: rgba(246, 196, 83, 0.06);
+}
+
+.save-toast {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: #00c16a;
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: 0.25s ease;
+  z-index: 99999;
+}
+
+.save-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .hero-content {
+    padding: 90px 0 50px;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-text {
+    font-size: 0.98rem;
+  }
+
+  .top-grid,
+  .schedule-grid,
+  .friends-grid,
+  .team-player-grid,
+  .admin-points-grid,
+  .match-player-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  .schedule-card,
+  .friend-card,
+  .team-column {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .leaderboard-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .action-btn,
+  .small-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .friend-actions {
+    flex-direction: column;
+  }
+
+  .schedule-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .save-toast {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    text-align: center;
+  }
+}
+
 .today-match {
   border: 2px solid #00ffcc;
   box-shadow: 0 0 15px #00ffcc;
